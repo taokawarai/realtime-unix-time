@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="js">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="twitter:card" content="summary" />
+  <meta property="og:image" content="🕒"/>
+  <title>Real-Time Unix Time</title>
+</head>
+<body>
+  <h1>Real-Time Unix Time</h1>
+
+  <h3>2023年11月15日 水曜日 07:13:20.000 GMT+09:00</h3>
+  
+  <ul>
+    <li><a href="https://en.wikipedia.org/wiki/Unix_time">What is "epoch/Unix time" ?</a></li>
+    <li><div id="timestamp-display"></div></li>
+  </ul>
+
+  <script>
+    // HTML内の表示領域を取得
+    const timestampDisplay = document.getElementById('timestamp-display');
+
+    // タイムスタンプを表示する関数
+    function updateTimestamp() {
+      // 現在のエポックタイムスタンプを取得
+      const currentTimestamp = Date.now();
+
+      // タイムスタンプを日時文字列に変換
+      const formattedTimestamp = new Date(currentTimestamp).toLocaleString();
+
+      // タイムスタンプを表示領域に表示
+      timestampDisplay.textContent = `Epoch Timestamp: ${currentTimestamp} (${formattedTimestamp})`;
+    }
+
+    // 初回表示
+    updateTimestamp();
+
+    // 1ミリ秒ごとにタイムスタンプを更新
+    setInterval(updateTimestamp, 1);
+  </script>
+</body>
+</html>
